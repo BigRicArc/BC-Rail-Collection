@@ -1,0 +1,235 @@
+grf{
+	grfid: "EA\01\01";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESCRIPTION);
+	version: 0;
+	min_compatible_version: 0;
+}
+
+//graphics definition
+spriteset(spriteset_GMD_GF6C, "gfx/GMD-GF6C.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 0,      0,        8,    28,      -3,      -14] //good
+    [ 9,      0,       20,    21,     -16,      -12] //good
+    [ 32,     0,       32,    16,     -14,       -12] //good
+    [ 65,     0,       20,    21,     -4,       -10] //good
+    [ 88,     0,        8,    28,      -3,      -14] //good
+    [ 97,     0,       20,    21,     -16,      -12] //good
+    [ 120,    0,       32,    16,     -19,       -12] //good
+    [ 153,    0,       20,    21,     -8,       -16] //good
+}
+
+spriteset(spriteset_mazda3, "gfx/mazda3.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 262,    3,        7,    11,      -3,      -6]
+    [ 280,    5,       11,    8,     -5,       -4]
+    [ 320,    4,       15,    8,     -8,       -4]
+    [ 363,    3,       8,    9,      -4,       -3]
+    [ 388,    4,        7,    11,      -3,      -6]
+    [ 414,    4,       8,    9,     -4,       -3]
+    [ 442,    4,       15,    8,     -8,       -4]
+    [ 466,    4,       11,    8,      -5,       -4]
+}
+
+item(FEAT_ROADVEHS, item_mazda_3){
+	property {
+	        /* Properties common to all vehicle types */
+	        name:                           string(STR_NAME_MAZDA3);
+	        climates_available:             bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+	        introduction_date:              date(2003,01,01);
+	        model_life:                     65;
+	        /* retire_early not set, use default retirement behaviour */
+	        vehicle_life:                   15;
+	        reliability_decay:              20;
+	        refittable_cargo_classes:       bitmask(CC_PASSENGERS);
+	        non_refittable_cargo_classes:   bitmask(CC_REFRIGERATED);
+	        loading_speed:                  5;
+	        cost_factor:                    108;
+	        running_cost_factor:            90;
+	        /* cargo_age_period is left at default */
+	
+	        /* RV-specific properties */
+	        sprite_id:                      SPRITE_ID_NEW_ROADVEH; //enable new graphics
+	        speed:                          210 km/h;
+	        misc_flags:                     bitmask(ROADVEH_FLAG_2CC);
+	        refit_cost:                     0; // Refitting is free
+	        /* callback_flags are not set, no need to manually enable callbacks */
+	        running_cost_base:              RUNNING_COST_ROADVEH;
+	        power:                          184 hp;
+	        weight:                         2 ton;
+	        /* TE and air drag coefficient is left at default */
+	        cargo_capacity:                 5;
+	        sound_effect:                   SOUND_BUS_START_PULL_AWAY;
+	        /* Visual effect is left at default (no effect) */
+	    }
+
+	/* Defines graphics for the sprite*/
+	graphics {
+		default: spriteset_mazda3;
+	}
+
+}
+
+/* Define the actual train */
+item(FEAT_TRAINS, item_GMD_GF6C) {
+    /* Define properties first, make sure to set all of them */
+    property {
+        name:                         string(STR_GMD_GF6C_NAME);
+        climates_available:           bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date:            date(1983, 1, 1);
+        model_life:                   VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                 30;
+        reliability_decay:            20;
+        refittable_cargo_classes:     bitmask();
+        non_refittable_cargo_classes: bitmask();
+        // refitting is done via cargo classes only, no cargo types need explicit enabling/disabling
+        // It's an intercity train, loading is relatively slow:
+        loading_speed:                5;
+        cost_factor:                  27;
+        running_cost_factor:          100; // Changed by callback
+        sprite_id:                    SPRITE_ID_NEW_TRAIN;
+        speed:                        141 km/h; // actually 140, but there are rounding errors
+        misc_flags:                   bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        refit_cost:                   0; //refit costs don't apply to subcargo display
+        // callback flags are not set manually
+        track_type:                   ELRL; // from rail type table
+        ai_special_flag:              AI_FLAG_PASSENGER;
+        power:                        6000 hp; // Changed by CB
+        running_cost_base:            RUNNING_COST_ELECTRIC;
+        dual_headed:                  0;
+        cargo_capacity:               0; // per part, changed by callback
+        weight:                       144 ton; // Total, changed by callback
+        ai_engine_rank:               0; // not intended to be used by the ai
+        engine_class:                 ENGINE_CLASS_ELECTRIC;
+        extra_power_per_wagon:        0 kW;
+        // 4/12 of weight on driving wheels, with a default friction coefficient of 0.3:
+        tractive_effort_coefficient:  0.3 / 3; // changed by callback
+        air_drag_coefficient:         0.06;
+        length:                       8;
+        // Overridden by callback to disable for non-powered wagons:
+        visual_effect_and_powered:    visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC, 2, DISABLE_WAGON_POWER);
+        extra_weight_per_wagon:       0 ton;
+        bitmask_vehicle_info:         0;
+    }
+    /* Define graphics and callbacks
+     * Setting all callbacks is not needed, only define what is used */
+    graphics {
+        default:                      spriteset_GMD_GF6C;
+    }
+}
+
+
+// Town Name Modifications
+
+town_names(prefix){
+	{
+	text("Fort ", 5),
+	text("Port ", 5),
+	text("Prince ", 5),
+	text("New ", 1),
+	text("Old", 1),
+	}
+}
+town_names(suffix){
+	{
+	text(" Bridge", 1),
+	text("ville", 2),
+	text(" Lake", 3),
+	text(" Narrows", 2),
+	text("vale", 1),
+	text("land", 3),
+	text(" Moutain", 2),
+	text(" River", 2),
+	text(" Creek ", 1),
+	text(" Peaks", 1),
+	text(" Bar", 2),
+	text(" Hot Springs", 1),
+	text(" Falls", 1),
+	text(" Forks", 1),
+	text(" House", 1),
+	text("town", 1),
+	text(" Landing", 3),
+	text(" Island", 1),
+	text(" Park", 1),
+	text(" Bay", 2),
+	text(" Valley", 2),
+	text("hoof", 1),
+	text("Springs", 1)
+	}
+}
+town_names(core){
+	{
+	text("Coquitlam", 3),
+	text("Vancouver", 3),
+	text("Burnaby", 3),
+	text("Richmond", 3),
+	text("Westminster", 3),
+	text("Victoria", 3),
+	text("Surrey", 3),
+	text("Masset", 3),
+	text("Whistler", 3),
+	text("Kamloops", 3),
+	text("Summer", 3),
+	text("Delta", 3),
+	text("Duncan", 3),
+	text("Hope", 3),
+	text("Abbots", 3),
+	text("Moody", 3),
+	text("Maple", 3),
+	text("Rock", 3),
+	text("Langley", 3),
+	text("Anmore", 3),
+	text("Belcarra", 3),
+	text("Mission", 3),
+	text("Cultus", 3),
+	text("Osoyoos", 3),
+	text("Tulameen", 3),
+	text("Castlegar", 3),
+	text("Revelstoke", 3),
+	text("Golden", 3),
+	text("Nelson", 3),
+	text("Trail", 3),
+	text("Radium", 3),
+	text("Skookumchuck", 1),
+	text("George", 3),
+	text("Saanich", 3),
+	text("Sooke", 3),
+	text("St. John", 3),
+	text("Nanaimo", 3),
+	text("Fiddlehead", 3),
+	text("Salmonberry", 3),
+	text("Sechelt", 3),
+	text("Gibsons", 3),
+	text("Williams", 3),
+	text("Salmon", 3)
+	}
+}
+
+town_names (core_with_suffix){
+	{
+	town_names(core, 1)
+	}
+	{
+	town_names(suffix, 1)
+	}
+}
+
+town_names (core_with_prefix){
+	{
+	town_names(prefix, 1)
+	}
+	{
+	town_names(core, 1)
+	}
+}
+
+town_names {
+	styles : string(STR_STYLES);
+	{
+	town_names(core, 6),
+	town_names(core_with_prefix, 3),
+	town_names(core_with_suffix, 1),
+	}
+}
+
+
