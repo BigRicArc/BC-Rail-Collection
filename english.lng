@@ -1,0 +1,11 @@
+##grflangid 0x01
+
+#GRF name and descriptions
+STR_GRF_NAME            :{TITLE} {VERSION}
+STR_GRF_DESCRIPTION     :{TITLE} is a simple Newgrf that adds game content related to British Columbia Canada. So far it adds the GMD GF6C, a locomotive specially designed to run on BC Rail's Tumbler Ridge Subdivision between 1983 and 2000 and Town Names option that adds BC place names.
+STR_STYLES       : British Columbia Town Names
+
+
+#vehicle names
+STR_GMD_GF6C_NAME  :GMD GF6C
+STR_NAME_MAZDA3 :Mazda 3 Hatchback
