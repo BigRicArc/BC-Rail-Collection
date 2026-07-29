@@ -24,8 +24,8 @@ Electric power was chosen due to the tunnels not having adequate ventilation for
 
 ![BiLevel Coach's at waterfront station](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/West_Coast_Express_trains_at_Waterfront.JPG/1920px-West_Coast_Express_trains_at_Waterfront.JPG)
 
-Theses passenger coaches are most frequently used on GO Transit trains in Ontario but are also the only type of passenger cars
-on British Columbia's West Coast Express. These coaches have been around for awhile but in this newgrf they are only accessible in the 90s because that is when the West Coast Express got started. The West Coast express is the fourth largest operator of these coaches behind, Go Transit (Toronto), Metrolink (Los Angeles) and Sounder (Seattle).
+These passenger coaches are most frequently used on GO Transit trains in Ontario but are also the only type of passenger cars
+on British Columbia's West Coast Express. The coach design has been around for awhile but in this newgrf they are only accessible in the 90s because that is when the West Coast Express got started. The West Coast express is the fourth largest operator of these coaches behind, Go Transit (Toronto), Metrolink (Los Angeles) and Sounder (Seattle).
 
 # Features TODO
 
