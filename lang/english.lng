@@ -9,6 +9,8 @@ STR_STYLES       : British Columbia Town Names
 
 
 #vehicle names
+
+STR_BOM_BILEVEL_CAR_NAME :Bombardier BiLevel Coach
 STR_GMD_GF6C_NAME  :GMD GF6C (Electric)
 STR_EMD_F59PHI_NAME :EMD FP59PHI (Diesel)
 STR_NAME_MAZDA3 :Mazda 3 Hatchback (Gasoline)

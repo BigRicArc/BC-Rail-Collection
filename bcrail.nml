@@ -19,6 +19,20 @@ spriteset(spriteset_GMD_GF6C, "gfx/GMD-GF6C.png") {
     [ 153,    0,       20,    21,     -8,       -16] //good
 }
 
+// A larger negative number for y offset is higher on the screen
+// A larger neagative number for x offset is further to the left
+spriteset(spriteset_BOM_BILEVEL_CAR, "gfx/BOM-BILEVEL-CAR.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 0,      0,        8,    28,      -3,       -16] // Good 
+    [ 9,      0,       20,    21,      -14,      -14] 
+    [ 32,     0,       32,    16,      -18,      -12]
+    [ 65,     0,       20,    21,      -8,       -14] 
+   // [ 88,     0,        8,    28,      -3,       -16] // Good
+   // [ 97,     0,       20,    21,      -16,      -14] 
+   // [ 120,    0,       32,    16,      -19,      -12]
+   // [ 153,    0,       20,    21,      -8,       -16] 
+}
+
 spriteset(spriteset_mazda3, "gfx/mazda3.png") {
     //left_x, upper_y, width, height, offset_x, offset_y
     [ 262,    3,        7,    11,      -3,      -6]
@@ -75,7 +89,7 @@ item(FEAT_TRAINS, item_GMD_GF6C) {
     /* Define properties first, make sure to set all of them */
     property {
         name:                         string(STR_GMD_GF6C_NAME);
-        climates_available:           bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        climates_available:           bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC);
         introduction_date:            date(1983, 1, 1);
         model_life:                   VEHICLE_NEVER_EXPIRES;
         vehicle_life:                 30;
@@ -122,7 +136,7 @@ item(FEAT_TRAINS, item_EMD_F59PHI) {
     /* Define properties first, make sure to set all of them */
     property {
         name:                         string(STR_EMD_F59PHI_NAME);
-        climates_available:           bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        climates_available:           bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC);
         introduction_date:            date(1994, 1, 1);
         model_life:                   VEHICLE_NEVER_EXPIRES;
         vehicle_life:                 50;
@@ -133,8 +147,8 @@ item(FEAT_TRAINS, item_EMD_F59PHI) {
         cost_factor:                  27;
         running_cost_factor:          100; // Changed by callback
         sprite_id:                    SPRITE_ID_NEW_TRAIN;
-        speed:                        177 km/h; // actually 140, but there are rounding errors
-        misc_flags:                   bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        speed:                        177 km/h;
+        misc_flags:                   bitmask(TRAIN_FLAG_2CC);
         refit_cost:                   0; //refit costs don't apply to subcargo display
         // callback flags are not set manually
         track_type:                   RAIL; // from rail type table
@@ -158,6 +172,50 @@ item(FEAT_TRAINS, item_EMD_F59PHI) {
      * Setting all callbacks is not needed, only define what is used */
     graphics {
         default:                      spriteset_GMD_GF6C;
+    }
+}
+
+item(FEAT_TRAINS, item_BOM_BILEVEL_CAR) {
+    /* Define properties first, make sure to set all of them */
+    property {
+        name:                         string(STR_BOM_BILEVEL_CAR_NAME);
+        climates_available:           bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC);
+        introduction_date:            date(1994, 1, 1);
+        model_life:                   VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                 50;
+        reliability_decay:            20;
+        refittable_cargo_classes:     bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes: bitmask();
+        loading_speed:                8;
+        cost_factor:                  27;
+        running_cost_factor:          100; // Changed by callback
+        sprite_id:                    SPRITE_ID_NEW_TRAIN;
+        speed:                        450 km/h;
+        misc_flags:                   bitmask(TRAIN_FLAG_2CC);
+
+        refit_cost:                   0; //refit costs don't apply to subcargo display
+        // callback flags are not set manually
+        track_type:                   RAIL; // from rail type table
+        ai_special_flag:              AI_FLAG_PASSENGER;
+        power:                        0 hp; // Changed by CB
+        running_cost_base:            RUNNING_COST_ELECTRIC;
+        dual_headed:                  0;
+        cargo_capacity:               142; // per part, changed by callback
+        weight:                       61 ton; // Total, changed by callback
+        ai_engine_rank:               0; // not intended to be used by the ai
+        engine_class:                 ENGINE_CLASS_DIESEL;
+        extra_power_per_wagon:        0 kW;
+        tractive_effort_coefficient:  0;
+        air_drag_coefficient:         0.06;
+        length:                       8;
+        visual_effect_and_powered:    visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 2, DISABLE_WAGON_POWER);
+        extra_weight_per_wagon:       0 ton;
+        bitmask_vehicle_info:         0;
+    }
+    /* Define graphics and callbacks
+     * Setting all callbacks is not needed, only define what is used */
+    graphics {
+        default:                      spriteset_BOM_BILEVEL_CAR;
     }
 }
 
