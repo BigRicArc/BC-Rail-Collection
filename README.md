@@ -17,15 +17,20 @@ Features include one locomotive, one coach and a town name set.
 
 ![GMD GF6C Photo](https://forums.firecrown.com/uploads/trains/original/2X/f/f972a688e212943d137290c9079953c29de81dea.jpeg)
 
-An electric locomotive designed to haul coal from mines at Tumbler ridge through two very long tunnels in the Rockies to Prince George for transfer to the BC Rail main line.
-Electric power was chosen due to the tunnels not having adequate ventilation for a diesel locomotive.
+An electric locomotive designed with considerable "irony" (Campbell, 2023) to haul coal from mines at Tumbler ridge. The coal was hauled through two long tunnels along an isolated branch of single track in the Rockies to Prince George for transfer to the BC Rail main line.
 
 ### Bombardier BiLevel Coach
 
 ![BiLevel Coach's at waterfront station](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/West_Coast_Express_trains_at_Waterfront.JPG/1920px-West_Coast_Express_trains_at_Waterfront.JPG)
 
-These passenger coaches are most frequently used on GO Transit trains in Ontario but are also the only type of passenger cars
-on British Columbia's West Coast Express. The coach design has been around for awhile but in this newgrf they are only accessible in the 90s because that is when the West Coast Express got started. The West Coast express is the fourth largest operator of these coaches behind, Go Transit (Toronto), Metrolink (Los Angeles) and Sounder (Seattle).
+Theses passenger coaches are most frequently used on GO Transit trains in Ontario but are also the only type of passenger cars
+on British Columbia's West Coast Express. The coaches were orginally put into service in the 70s but in this newgrf they are only accessible in the 90s because that is when the West Coast Express got started. The West Coast express is the fourth largest operator of these coaches behind, Go Transit (Toronto), Metrolink (Los Angeles) and Sounder (Seattle).
+
+### EMD F59PHI 
+
+![West Coast Express loco at Waterfront Station](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/WCE_train_no._901_at_Waterfront.jpg/1280px-WCE_train_no._901_at_Waterfront.jpg)
+
+The primary locomotive on the West Coast Express.
 
 # Features TODO
 
