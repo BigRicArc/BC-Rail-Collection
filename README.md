@@ -32,6 +32,16 @@ on British Columbia's West Coast Express. The coaches were orginally put into se
 
 The primary locomotive on the West Coast Express.
 
+### References
+
+Campbell, Rebecca. 2023. ‘Using Electricity to Haul Coal: The British Columbia Railway’s Tumbler Ridge Branch Line, 1983-2000’. Text. NiCHE, May 25. https://niche-canada.org/2023/05/25/using-electricity-to-haul-coal-the-british-columbia-railways-tumbler-ridge-branch-line-1983-2000/.
+
+Garcia, Daniel, James Bow, and Brain Edward. n.d. ‘The Bi-Level Coaches (1977-?)’. Transit Toronto, Toronto: Transit Toronto. https://transittoronto.ca/regional/2507.shtml.
+
+Hett, Hanna. 2025. ‘The West Coast Express Is Turning 30. Here’s What It Has Meant for the Region’. The Tri-Cities Dispatch (Coquitlam). https://tricitiesdispatch.com/the-west-coast-express-is-turning-30-heres-what-it-has-meant-for-the-region/.
+
+
+
 # Features TODO
 
 - Vancouver Island line steam loco
