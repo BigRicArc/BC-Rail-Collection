@@ -46,5 +46,4 @@ Hett, Hanna. 2025. ‘The West Coast Express Is Turning 30. Here’s What It Has
 
 - Vancouver Island line steam loco
 - Vancouver Tram
-- EMD F59PHI, the west coast express loco
 - A loco from the southern Rail Way of British Columbia (previous BC Hydro loco's)
