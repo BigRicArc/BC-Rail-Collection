@@ -44,6 +44,6 @@ Hett, Hanna. 2025. ‘The West Coast Express Is Turning 30. Here’s What It Has
 
 # Features TODO
 
-- Vancouver Island line steam loco
+- Canadian Pacific 3716, Once operated by BC Rail
 - Vancouver Tram
 - A loco from the southern Rail Way of British Columbia (previous BC Hydro loco's)
