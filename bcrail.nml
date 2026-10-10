@@ -33,6 +33,20 @@ spriteset(spriteset_BOM_BILEVEL_CAR, "gfx/BOM-BILEVEL-CAR.png") {
    // [ 153,    0,       20,    21,      -8,       -16] 
 }
 
+// A larger negative number for y offset is higher on the screen
+// A larger neagative number for x offset is further to the left
+spriteset(spriteset_EMD_F59PHI, "gfx/EMD-F59PHI.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 0,      0,        8,    28,      -3,       -16] // Good
+    [ 9,      0,       20,    21,      -14,      -14]
+    [ 32,     0,       32,    16,      -18,      -12]
+    [ 65,     0,       20,    21,      -8,       -14]
+    [ 88,     0,        8,    28,      -3,       -16] // Good
+    [ 97,     0,       20,    21,      -8,       -14]
+    [ 120,    0,       32,    16,      -18,      -12]
+    [ 153,    0,       20,    21,      -14,      -14]
+}
+
 spriteset(spriteset_mazda3, "gfx/mazda3.png") {
     //left_x, upper_y, width, height, offset_x, offset_y
     [ 262,    3,        7,    11,      -3,      -6]
@@ -171,7 +185,7 @@ item(FEAT_TRAINS, item_EMD_F59PHI) {
     /* Define graphics and callbacks
      * Setting all callbacks is not needed, only define what is used */
     graphics {
-        default:                      spriteset_GMD_GF6C;
+        default:                      spriteset_EMD_F59PHI;
     }
 }
 
